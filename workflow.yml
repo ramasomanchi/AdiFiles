@@ -1,0 +1,20 @@
+name: Extract and Visualize IN Data
+
+on:
+  push: # Trigger on pushes to the repository
+
+jobs:
+  extract-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3 # Checkout code
+
+      - name: Install Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.8' # Adjust if needed
+
+      - name: Run Python script
+        run: |
+          python extract_data.py
+
